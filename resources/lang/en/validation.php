@@ -105,6 +105,10 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'IdRegion' => 'Region',
+        'IdProvincia' => 'Provincia',
+        'IdDistrito' => 'Distrito',
+    ],
 
 ];

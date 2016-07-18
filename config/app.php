@@ -137,13 +137,19 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
 
+        /**
+         * Vendor Service Providers...
+         */
+
+        Styde\Html\HtmlServiceProvider::class,
+
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        Cars\Providers\AppServiceProvider::class,
+        Cars\Providers\AuthServiceProvider::class,
+        Cars\Providers\EventServiceProvider::class,
+        Cars\Providers\RouteServiceProvider::class,
 
     ],
 
