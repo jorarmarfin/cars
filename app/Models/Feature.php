@@ -4,7 +4,7 @@ namespace Cars\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Distrito extends Model
+class Feature extends Model
 {
-    protected $table = 'distrito';
+    //
 }
