@@ -65,9 +65,41 @@
       $(document).ready(function () {
         $('select').select2();
 
-        $('#search select').change(function(event) {
-          $('#search').submit();
-        });
+        $.fn.populateSelect = function (values) {
+          var options = '';
+          $.each(values, function(key, row) {
+             options += '<option value="' + row.value + '">' + row.text + '</option>';
+          });
+          $(this).html(options);
+        }
+        $('#idregion').change(function () {
+
+            $('#iddistrito').empty().change();
+
+            var idregion = $(this).val();
+
+            if (idregion == '') {
+              $('#idprovincia').empty().change();
+            }else{
+              $.getJSON('/provincia/'+idregion, null, function(values) {
+                $('#idprovincia').populateSelect(values);
+
+              });
+            };
+
+        })
+
+        $('#idprovincia').change(function () {
+           var idprovincia = $(this).val();
+
+           if (idprovincia == '') {
+            $('#iddistrito').empty().change();
+           }else{
+            $.getJSON('/distrito/'+idprovincia,null, function(values) {
+                $('#iddistrito').populateSelect(values);
+            });
+           };
+        })
 
       });
     </script>
