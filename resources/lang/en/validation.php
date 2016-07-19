@@ -106,9 +106,9 @@ return [
     */
 
     'attributes' => [
-        'IdRegion' => 'Region',
-        'IdProvincia' => 'Provincia',
-        'IdDistrito' => 'Distrito',
+        'idregion' => 'Region',
+        'idprovincia' => 'Provincia',
+        'iddistrito' => 'Distrito',
     ],
 
 ];

@@ -150,6 +150,9 @@ return [
         Cars\Providers\AuthServiceProvider::class,
         Cars\Providers\EventServiceProvider::class,
         Cars\Providers\RouteServiceProvider::class,
+        Cars\Providers\ViewServiceProvider::class,
+
+
 
     ],
 

@@ -64,6 +64,11 @@
     <script type="text/javascript">
       $(document).ready(function () {
         $('select').select2();
+
+        $('#search select').change(function(event) {
+          $('#search').submit();
+        });
+
       });
     </script>
   </body>
