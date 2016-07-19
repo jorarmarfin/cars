@@ -12,6 +12,8 @@
 */
 use Cars\Models\Provincia;
 use Cars\Models\Distrito;
+use Cars\Models\Feature;
+use Cars\Models\Car;
 
 Route::get('/', function () {
     return view('welcome');
@@ -45,4 +47,22 @@ Route::get('distrito/{idprovincia}',function ($idprovincia){
 	array_unshift($distritos, ['value' => '','text' => 'Seleccionar Distrito']);
 
 	return $distritos;
+});
+
+Route::get('features',function (){
+	$car = Car::first();
+
+	$features = Feature::orderBy('name','ASC')->lists('name','id')->toArray();
+
+	$currentFeatures = $car->features()->lists('feature_id')->toArray();
+
+	return view('components/features',compact('features','currentFeatures'));
+});
+
+Route::post('features',function (){
+	$car = Car::first();
+	$car->features()->sync(Request::get('features'));
+	// sync va a grabar los features en la tabla features
+
+	return redirect()->to('features');
 });
