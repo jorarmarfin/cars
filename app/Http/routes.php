@@ -59,7 +59,11 @@ Route::get('features',function (){
 
 Route::post('features',function (){
 	$car = Car::first();
-	$car->features()->sync(Request::get('features'));
+
+	// Esta linea sirve para validar la lista que viene
+	$features = Feature::whereIn('id',Request::get('features'))->get();
+
+	$car->features()->sync($features);
 	// sync va a grabar los features en la tabla features
 
 	return redirect()->to('features');
