@@ -54,9 +54,7 @@ Route::get('features',function (){
 
 	$features = Feature::orderBy('name','ASC')->lists('name','id')->toArray();
 
-	$currentFeatures = $car->features()->lists('feature_id')->toArray();
-
-	return view('components/features',compact('features','currentFeatures'));
+	return view('components/features',compact('features','car'));
 });
 
 Route::post('features',function (){
