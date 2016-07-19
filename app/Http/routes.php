@@ -60,11 +60,11 @@ Route::get('features',function (){
 Route::post('features',function (){
 	$car = Car::first();
 
-	// Esta linea sirve para validar la lista que viene
-	$features = Feature::whereIn('id',Request::get('features'))->get();
+	$features = Request::get('features');
 
-	$car->features()->sync($features);
-	// sync va a grabar los features en la tabla features
+	Feature::addNewFeatures($features);
+
+	$car->saveFeatures($features);
 
 	return redirect()->to('features');
 });

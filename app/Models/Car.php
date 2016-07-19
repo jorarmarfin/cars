@@ -14,5 +14,13 @@ class Car extends Model
     {
     	return $this->features()->lists('feature_id')->toArray();
     }
+    public function saveFeatures(array $features)
+    {
+    	// Esta linea sirve para validar la lista que viene
+		$features = Feature::whereIn('id',$features)->orWhereIn('name',$features)->get();
+
+		$this->features()->sync($features);
+		// sync va a grabar los features en la tabla features
+    }
 
 }
