@@ -39,6 +39,43 @@
 
 		};
 
+		var optionsAjax = {
+		    url: "/autocomplete/users",
+
+		    getValue: "name",
+
+		    template: {
+		        type: "description",
+		        fields: {
+		            description: "email"
+		        }
+		    },
+
+		    list: {
+		        match: {
+		            enabled: true
+		        }
+		    },
+
+			theme: "bootstrap",
+
+			ajaxSettings: {
+			    dataType: "json",
+			    method: "GET",
+			    data: {
+			    }
+			  },
+
+			  preparePostData: function(data) {
+			    data.term = $("#user").val();
+			    return data;
+			  },
+
+			  requestDelay: 400
+
+
+		};
+
 		$("#user").easyAutocomplete(options);
 	});
 

@@ -11,7 +11,7 @@
 |
 */
 
-$factory->define(Cars\User::class, function (Faker\Generator $faker) {
+$factory->define(Cars\Models\User::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
         'email' => $faker->safeEmail,
